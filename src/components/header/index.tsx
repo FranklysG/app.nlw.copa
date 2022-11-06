@@ -1,7 +1,7 @@
 import { Text, HStack, Box } from 'native-base';
 import { CaretLeft, Export } from 'phosphor-react-native';
 
-import { ButtonIcon } from '../ButtonIcon';
+import { ButtonIcon } from '../buttonIcon';
 
 interface Props {
   title: string;

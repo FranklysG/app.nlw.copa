@@ -1,8 +1,6 @@
 import React from "react";
 import { Heading, Text, VStack } from "native-base";
 
-import Logo from "../../assets/logo.svg";
-
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
