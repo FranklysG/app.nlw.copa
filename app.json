@@ -1,10 +1,10 @@
 {
     "expo": {
       "name": "Nlw copa",
-      "slug": "nlw-copa",
+      "slug": "app-nlw-copa",
       "owner": "franklysg",
       "version": "1.0.0",
-      "scheme": "app.nlw.copa",
+      "scheme": "app-nlw-copa",
       "orientation": "portrait",
       "icon": "./assets/icon.png",
       "splash": {
