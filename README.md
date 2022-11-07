@@ -19,18 +19,18 @@
 
 <p align="left">
 <code>
-<img src="assets/readme/screen.gif" height="450px">
+<img src="assets/readme/screen.gif" height="560px">
 </code>
 <code>
-<img src="assets/readme/screen-00.png" height="450px">
+<img src="assets/readme/screen-00.png" height="560px">
 </code>
 <code>
-<img src="assets/readme/screen-01.png" height="450px">
+<img src="assets/readme/screen-01.png" height="560px">
 </code>
 </p>
 <p align="left">
 <code>
-<img src="assets/readme/screen-02.png" height="450px">
+<img src="assets/readme/screen-02.png" height="560px">
 </code>
 </p>
 
