@@ -1,5 +1,6 @@
 import React from "react";
 import { Heading, Text, VStack } from "native-base";
+import { useNavigation } from '@react-navigation/native';
 
 import Logo from "../../assets/logo.svg";
 
@@ -8,6 +9,7 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 
 export default function New() {
+  const { navigate } = useNavigation();
   return (
     <VStack flex={1} bgColor="gray.900">
       <Header title="Criar novo bolão" />
@@ -23,7 +25,7 @@ export default function New() {
           Crie seu proprio bolão da copa {'\n'} e compartilhe entre amigos!
         </Heading>
         <Input mb={2} placeholder={"Qual o nome do seu bolão?"} />
-        <Button title="CRIAR MEU BOLÃO" />
+        <Button title="CRIAR MEU BOLÃO" onPress={() => navigate('find')}/>
         <Text color={'gray.200'} fontSize={'sm'} textAlign={'center'} px={10} mt={4}>
           Após criar seu bolão, você receberá um codigo unico que poderá usar
           para convidar outras pessoas.
