@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { PlusCircle, SoccerBall } from "phosphor-react-native";
 import { useTheme } from "native-base";
+import { Platform } from "react-native";
 
 import New from "../screens/new";
 import Pool from "../screens/pool";
-import { Platform } from "react-native";
 import Find from "../screens/find";
 
 const { Navigator, Screen } = createBottomTabNavigator();

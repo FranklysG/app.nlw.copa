@@ -7,10 +7,10 @@ import { Button } from "../../components/button";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function SignIn() {
-  const { signIn } = useAuth();
+  const { signIn, isUserLoading } = useAuth();
 
   const handleUserLogin = useCallback(async () => {
-    await signIn()
+    await signIn();
   }, [signIn]);
 
   return (
@@ -21,17 +21,21 @@ export default function SignIn() {
       justifyContent="center"
       p={7}
     >
-      <Logo width={200} height={40}/>
+      <Logo width={200} height={40} />
       <Button
         title="ENTRAR COM GOOGLE"
         type="second"
         leftIcon={<Icon as={Fontisto} name="google" color="white" size="md" />}
         mt={12}
         onPress={handleUserLogin}
+        isLoading={isUserLoading}
+        _loading={{
+          _spinner: { color: "white" },
+        }}
       />
       <Text color={"white"} mt={4}>
-        Não ultilizamos nenhuma informação além {'\n'} do seu e-mail para ciração de
-        sua conta
+        Não ultilizamos nenhuma informação além {"\n"} do seu e-mail para
+        ciração de sua conta
       </Text>
     </Center>
   );

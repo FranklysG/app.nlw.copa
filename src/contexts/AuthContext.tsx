@@ -9,6 +9,8 @@ import * as Goole from "expo-auth-session/providers/google";
 import * as AuthSession from "expo-auth-session";
 import * as WebBrowser from "expo-web-browser";
 
+import { api } from "../services/api";
+
 WebBrowser.maybeCompleteAuthSession();
 
 interface UserProps {
@@ -50,9 +52,30 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
     }
   }, [promptAsync, setIsUserLoading]);
 
-  const signInWithGoogle = useCallback((access_token: string) => {
-    console.log("Token => " + access_token);
-  }, []);
+  const signInWithGoogle = useCallback(
+    async (access_token: string) => {
+      try {
+        setIsUserLoading(true);
+        const { token } = await api
+          .post("/users", { access_token })
+          .then((response) => response.data)
+          .then((data) => data);
+
+        api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        const { user } = await api
+          .get("/me")
+          .then((response) => response.data)
+          .then((data) => data);
+        setUser(user);
+      } catch (error) {
+        console.log(error);
+        throw error;
+      } finally {
+        setIsUserLoading(false);
+      }
+    },
+    [setIsUserLoading]
+  );
 
   useEffect(() => {
     if (response?.type === "success" && response.authentication?.accessToken) {
@@ -63,10 +86,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   const values = {
     signIn,
     isUserLoading,
-    user: {
-      name: "Franklys Guimaraes",
-      avatarUrl: "https://github.com/franklysg.png",
-    },
+    user,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }
